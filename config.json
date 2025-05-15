@@ -1,0 +1,123 @@
+{
+    "network": {
+        "subnet": "192.168.1.0/24",
+        "targets": [
+            "192.168.1.1",
+            "192.168.1.2"
+        ],
+        "exclude": [
+            "192.168.1.100"
+        ]
+    },
+    "ports": {
+        "default_range": [
+            1,
+            1024
+        ],
+        "priority_ports": [
+            21,
+            22,
+            23,
+            25,
+            53,
+            80,
+            443,
+            445,
+            3306,
+            3389,
+            5432,
+            8080
+        ],
+        "service_map": {
+            "20": "FTP-DATA",
+            "21": "FTP",
+            "22": "SSH",
+            "23": "TELNET",
+            "25": "SMTP",
+            "53": "DNS",
+            "80": "HTTP",
+            "110": "POP3",
+            "143": "IMAP",
+            "443": "HTTPS",
+            "445": "SMB",
+            "3306": "MySQL",
+            "3389": "RDP",
+            "5432": "PostgreSQL",
+            "8080": "HTTP-ALT",
+            "27017": "MongoDB"
+        }
+    },
+    "scanning": {
+        "discovery_interval": 300,
+        "port_scan_interval": 1800,
+        "vulnerability_scan_interval": 3600,
+        "max_threads": 100,
+        "timeout": 2,
+        "retries": 1
+    },
+    "traffic_analysis": {
+        "alert_thresholds": {
+            "syn_flood": 100,
+            "port_scan": 50,
+            "dns_amplification": 100,
+            "brute_force": 20
+        },
+        "packet_capture": {
+            "max_packets": 10000,
+            "filter": "tcp or udp"
+        }
+    },
+    "alerts": {
+        "email": {
+            "enabled": false,
+            "smtp_server": "smtp.gmail.com",
+            "smtp_port": 587,
+            "username": "",
+            "password": "",
+            "recipients": []
+        },
+        "notification_interval": 300,
+        "blacklist": [],
+        "whitelist": []
+    },
+    "dashboard": {
+        "port": 5000,
+        "update_interval": 5,
+        "max_history": 1000
+    },
+    "firewall": {
+        "enabled": false,
+        "rules": [
+            {
+                "action": "DENY",
+                "source_ip": "any",
+                "destination_ip": "local",
+                "protocol": "TCP",
+                "port": 22,
+                "description": "Block all SSH access"
+            },
+            {
+                "action": "ALLOW",
+                "source_ip": "192.168.1.0/24",
+                "destination_ip": "any",
+                "protocol": "any",
+                "port": "any",
+                "description": "Allow all traffic from local network"
+            }
+        ]
+    },
+    "reporting": {
+        "formats": [
+            "html",
+            "pdf",
+            "json"
+        ],
+        "templates_dir": "templates"
+    },
+    "logging": {
+        "level": "INFO",
+        "file": true,
+        "console": true,
+        "log_dir": "logs"
+    }
+}

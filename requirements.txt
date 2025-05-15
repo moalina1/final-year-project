@@ -1,0 +1,32 @@
+# Web Framework and Real-time Communication
+Flask==2.3.3
+Flask-SocketIO==5.3.6
+python-socketio==5.10.0
+python-engineio==4.8.0
+
+# Network Packet Capture and Analysis
+scapy==2.5.0
+
+# Date and Time Handling
+python-dateutil==2.8.2
+
+# Type Hints Support
+typing-extensions==4.8.0
+
+# Logging and Debugging
+colorama==0.4.6
+
+# Security and Cryptography
+cryptography==41.0.4
+
+# Data Processing
+numpy==1.24.3
+pandas==2.0.3
+
+# Email Support
+secure-smtplib==0.1.1
+
+# Development Tools
+pytest==7.4.2
+black==23.9.1
+flake8==6.1.0 
