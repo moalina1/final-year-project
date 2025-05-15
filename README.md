@@ -1,4 +1,4 @@
-nitoring system that provides real-time traffic analysis, threat detection, and visualization.
+Mitoring system that provides real-time traffic analysis, threat detection, and visualization.
 
 ## Features
 
